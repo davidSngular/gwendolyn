@@ -1,5 +1,4 @@
 .navbar {
-  height: 70px;
   margin-bottom: 1px;
   color: white;
   padding: 15px;
@@ -24,5 +23,5 @@
   height: 20px;
   float: right;
   margin-right: 10px;
-  margin-top: 9px;
+  margin-top: 5px;
 }

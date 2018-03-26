@@ -41,7 +41,7 @@ const SERVICES = [
     BrowserModule,
     AppRoutingModule,
     // ServiceWorkerModule.register('ngsw-worker.js'),
-    environment.production ? ServiceWorkerModule.register('ngsw-worker.js') : [],
+    // environment.production ? ServiceWorkerModule.register('ngsw-worker.js') : [],
     ...FIREBASE_MODULES
   ],
   providers: [
