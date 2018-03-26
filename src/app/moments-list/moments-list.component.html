@@ -3,3 +3,8 @@
 <div *ngFor="let m of moments | async">
   <app-moment-item [moment]="m"></app-moment-item>
 </div>
+
+<div class="spinner" *ngIf="loading">
+  <div class="double-bounce1"></div>
+  <div class="double-bounce2"></div>
+</div>

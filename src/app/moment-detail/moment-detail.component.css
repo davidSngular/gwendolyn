@@ -16,8 +16,18 @@
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#a6000000', endColorstr='#00000000', GradientType=0); /* IE6-9 */
 }
 
-.moment-detail svg {
+.moment-detail .navbar > div {
+  display: inline;
+}
+
+.moment-detail .arrow {
   z-index: 300;
+}
+
+.moment-detail .edit {
+  z-index: 300;
+  float: right;
+  margin-right: 40px;
 }
 
 .moment-detail .title {

@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 import {MomentsService} from '../../services/moments.service';
 import {Observable} from 'rxjs/Observable';
 import {Moment} from '../../models/moment';
+import 'rxjs/add/operator/do';
 
 @Component({
   selector: 'app-moments-list',
@@ -11,9 +12,12 @@ import {Moment} from '../../models/moment';
 export class MomentsListComponent {
 
   public moments: Observable<Moment[]>;
+  public loading = true;
 
   constructor(public momentsService: MomentsService) {
-    this.moments = this.momentsService.get();
+    this.moments = this.momentsService.get().do(res => {
+      this.loading = res.length === 0;
+    });
   }
 
 }

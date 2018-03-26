@@ -1,12 +1,14 @@
 <div class="moment-detail">
   <div class="navbar">
     <div routerLink="/">
-      <span class="fas fa-arrow-left" ></span>
+      <span class="arrow fas fa-arrow-left"></span>
     </div>
-    <span class="far fa-edit"></span>
+    <div>
+      <span class="edit far fa-edit"></span>
+    </div>
   </div>
 
-  <img class="header-image" [src]="headerImage" (load)="loading = false" alt="Header image">
+  <img class="header-image" [src]="headerImage" (load)="loading = false" alt="">
 
   <div *ngIf="moment">
     <div class="title">
