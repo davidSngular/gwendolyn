@@ -1,0 +1,20 @@
+<div class="moment-item">
+  <div class="box" routerLink="/moment/{{moment.id}}">
+    <div class="text">
+
+      <span class="name">{{moment.name}}</span>
+
+      <span class="date" *ngIf="!moment.endDate"> {{moment.beginDate | date:'dd/MM'}}</span>
+      <span class="date" *ngIf="moment.endDate">
+        {{moment.beginDate | date:'dd/MM'}}
+        -
+        {{moment.endDate | date:'dd/MM'}}
+      </span>
+    </div>
+  </div>
+  <div class="background">
+    <div class="gradient" [style.background-color]="moment.backgroundColor"></div>
+    <!--<div class="image" [style.background-image]="'url(' + image + ')'"></div>-->
+  </div>
+
+</div>

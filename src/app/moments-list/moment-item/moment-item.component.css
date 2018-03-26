@@ -1,0 +1,48 @@
+.moment-item {
+  position: relative;
+  height: 100px;
+}
+
+.moment-item .box {
+  border-bottom: 1px solid;
+  padding: 15px;
+  color: white;
+}
+
+.moment-item .text {
+  position: relative;
+  z-index: 100;
+  margin: 10px 15px;
+}
+
+.moment-item .name {
+  display: block;
+  font-size: 21px;
+}
+
+.moment-item .date {
+  display: block;
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.moment-item .background {
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.moment-item .image {
+  height: 100px;
+  width: 50%;
+  right: 0;
+  background-size: cover;
+  background-position: center;
+}
+
+.moment-item .gradient {
+  height: 100px;
+  z-index: 50;
+  width: 100%;
+  left: 0;
+}
