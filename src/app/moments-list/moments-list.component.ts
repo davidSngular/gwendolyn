@@ -1,7 +1,5 @@
 import {Component} from '@angular/core';
 import {MomentsService} from '../../services/moments.service';
-import {Observable} from 'rxjs/Observable';
-import {Moment} from '../../models/moment';
 import 'rxjs/add/operator/do';
 
 @Component({
@@ -11,13 +9,13 @@ import 'rxjs/add/operator/do';
 })
 export class MomentsListComponent {
 
-  public moments: Observable<Moment[]>;
+  public momentsByYear;
   public loading = true;
 
   constructor(public momentsService: MomentsService) {
-    this.moments = this.momentsService.get().do(res => {
+    this.momentsService.getByYears().subscribe(res => {
+      this.momentsByYear = res;
       this.loading = res.length === 0;
     });
   }
-
 }

@@ -1,10 +1,18 @@
-<app-nav-bar></app-nav-bar>
+<div class="moments-list">
+  <app-nav-bar></app-nav-bar>
 
-<div *ngFor="let m of moments | async">
-  <app-moment-item [moment]="m"></app-moment-item>
-</div>
 
-<div class="spinner" *ngIf="loading">
-  <div class="double-bounce1"></div>
-  <div class="double-bounce2"></div>
+  <div *ngFor="let mByYear of momentsByYear">
+
+    <div class="year">
+      {{mByYear[0]}}
+    </div>
+
+    <app-moment-item *ngFor="let m of mByYear[1]" [moment]="m"></app-moment-item>
+  </div>
+
+  <div class="spinner" *ngIf="loading">
+    <div class="double-bounce1"></div>
+    <div class="double-bounce2"></div>
+  </div>
 </div>

@@ -1,0 +1,10 @@
+.moments-list .year {
+  position: relative;
+  background: #4c4c4c;
+  text-align: center;
+  padding: 20px;
+  font-size: 26px;
+  color: white;
+  border-top: 1px solid white;
+  border-bottom: 1px solid white;
+}
