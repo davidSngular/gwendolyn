@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {AngularFireAuth} from 'angularfire2/auth';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -26,35 +27,41 @@ export class HomeComponent implements OnInit {
     }
   };
 
-  constructor(private afAuth: AngularFireAuth, private fb: FormBuilder) {
+  constructor(private afAuth: AngularFireAuth,
+              private fb: FormBuilder,
+              private router: Router) {
   }
 
   ngOnInit() {
     this.buildForm();
   }
 
-  login(): void {
+  login() {
     this.afAuth.auth.signInWithEmailAndPassword(this.userForm.value.email, this.userForm.value.password).then(
-      (res) => console.log(res),
+      (res) => {
+        localStorage.setItem('email', this.userForm.value.email);
+        localStorage.setItem('pass', this.userForm.value.password);
+        this.router.navigate(['/moments']);
+      },
       (err) => {
         if (err.code === 'auth/user-not-found') {
           this.formErrors['email'] = 'Correo electrónico no encontrado';
         }
-        if (err.code === 'auth/auth/wrong-password') {
+        if (err.code === 'auth/wrong-password') {
           this.formErrors['password'] = 'Contraseña incorrecta';
         }
       }
     );
   }
 
-  buildForm(): void {
+  buildForm() {
     this.userForm = this.fb.group({
-      'email': ['', [
+      'email': [localStorage.getItem('email'), [
         Validators.required,
         Validators.email
       ]
       ],
-      'password': ['', [
+      'password': [localStorage.getItem('pass'), [
         Validators.required
       ]
       ],
@@ -62,9 +69,11 @@ export class HomeComponent implements OnInit {
 
     this.userForm.valueChanges.subscribe(data => this.onValueChanged(data));
     this.onValueChanged(); // reset validation messages
+
+    this.login();
   }
 
-  onValueChanged(data?: any) {
+  onValueChanged(data?) {
     if (!this.userForm) {
       return;
     }

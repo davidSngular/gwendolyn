@@ -5,7 +5,7 @@
 
 .moment-item .box {
   padding: 15px;
-  color: white;
+  color: #41a3d4;
 }
 
 .moment-item .text {
@@ -22,7 +22,7 @@
 .moment-item .date {
   display: block;
   font-size: 11px;
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(123, 145, 156, 0.6);
 }
 
 .moment-item .background {
@@ -46,4 +46,15 @@
   left: 0;
   border-bottom: 1px solid white;
   border-radius: 5px;
+  background: white;
+}
+
+.moment-item .badge {
+  height: 87px;
+  position: absolute;
+  z-index: 59;
+  width: 10px;
+  top: 0;
+  right: 0;
+  border-radius: 0 5px 5px 0;
 }

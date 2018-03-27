@@ -1,6 +1,20 @@
+.navbar {
+  color: white;
+  padding: 15px;
+  font-size: 25px;
+  text-align: center;
+  display: block;
+  background: #41a3d4;
+}
+
+.navbar .title {
+  margin-right: -10px;
+  font-weight: 200;
+}
+
 .home {
   width: 100vw;
-  height: 100vh;
+  height: calc(100vh - 230px);
 }
 
 .home .container {
@@ -23,7 +37,7 @@
 }
 
 .container > label {
-  color: #7b919c;
+  color: #41a3d4;
   padding-top: 40px;
 }
 
@@ -40,8 +54,14 @@
   font-size: 16px;
   color: #4c4e4f;
   padding-left: 10px;
-  border: 1px solid #7b919c;
+  border: 1px solid #41a3d4;
   border-radius: 5px;
+}
+
+.container input:focus {
+  border: 2px solid #41a3d4;
+  outline: none;
+  margin: -1px;
 }
 
 .container .form-error {
@@ -62,8 +82,20 @@
   height: 40px;
   font-size: 17px;
   width: 200px;
-  background: lightblue;
+  background: #41a3d4;
   border: 0;
   color: white;
   border-radius: 10px;
+}
+
+.container .submit-button:disabled {
+  background: rgba(65, 163, 212, 0.5);
+}
+
+.container .submit-button:focus {
+  outline: none;
+}
+
+.container .submit-button:active {
+  background: #178bc5;
 }
