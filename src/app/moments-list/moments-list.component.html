@@ -1,7 +1,6 @@
 <div class="moments-list">
   <app-nav-bar></app-nav-bar>
 
-
   <div *ngFor="let mByYear of momentsByYear">
 
     <div class="year">
@@ -14,5 +13,10 @@
   <div class="spinner" *ngIf="loading">
     <div class="double-bounce1"></div>
     <div class="double-bounce2"></div>
+  </div>
+
+  <div class="request-error" *ngIf="error">
+    <h3>{{error.code}}</h3>
+    {{error.message}}
   </div>
 </div>

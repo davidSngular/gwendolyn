@@ -4,6 +4,7 @@ import {Moment} from '../models/moment';
 import {AngularFireStorage} from 'angularfire2/storage';
 import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 import 'rxjs/add/operator/map';
+import {Observable} from 'rxjs/Observable';
 
 @Injectable()
 export class MomentsService {
@@ -26,6 +27,10 @@ export class MomentsService {
       .subscribe(
         (res: Moment[]) => {
           this._moments.next(res);
+        },
+        (err) => {
+          console.log(err);
+          this._moments.error(err);
         }
       );
   }
@@ -59,13 +64,6 @@ export class MomentsService {
   }
 
   public getById(id) {
-    // return this._moments.asObservable().map((moments: Moment[]) => {
-    //   for (const moment of moments) {
-    //     if (moment.id === id) {
-    //       return moment;
-    //     }
-    //   }
-    // });
     for (const moment of this._moments.getValue()) {
       if (moment.id === id) {
         return moment;
@@ -75,7 +73,11 @@ export class MomentsService {
   }
 
   public getImageUrl(name) {
-    return this.afStorage.ref(name).getDownloadURL();
+    if (name) {
+      return this.afStorage.ref(name).getDownloadURL();
+    } else {
+      return Observable.of('/assets/default.jpg');
+    }
   }
 }
 

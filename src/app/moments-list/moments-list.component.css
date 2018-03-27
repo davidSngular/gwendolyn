@@ -1,3 +1,7 @@
+.moments-list {
+  margin-top: 60px;
+}
+
 .moments-list .year {
   position: relative;
   background: #efefef;
@@ -5,5 +9,10 @@
   padding: 20px;
   font-size: 26px;
   color: #7b7b7b;
-  /*border-bottom: 1px solid white;*/
+}
+
+.moments-list .request-error {
+  padding: 40px;
+  text-align: center;
+  color: #7b7b7b;
 }

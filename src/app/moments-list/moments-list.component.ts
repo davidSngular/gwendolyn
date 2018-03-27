@@ -11,11 +11,16 @@ export class MomentsListComponent {
 
   public momentsByYear;
   public loading = true;
+  public error = null;
 
   constructor(public momentsService: MomentsService) {
     this.momentsService.getByYears().subscribe(res => {
-      this.momentsByYear = res;
-      this.loading = res.length === 0;
-    });
+        this.momentsByYear = res;
+        this.loading = res.length === 0;
+      },
+      (err) => {
+        this.loading = false;
+        this.error = err;
+      });
   }
 }

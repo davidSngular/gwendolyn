@@ -58,3 +58,16 @@
   right: 0;
   border-radius: 0 5px 5px 0;
 }
+
+.moment-item .image {
+  height: 74px;
+  border: 7px solid white;
+  width: 23%;
+  position: absolute;
+  z-index: 31;
+  top: 0;
+  right: 0;
+  border-radius:10px;
+  background-position: center;
+  background-size: cover;
+}

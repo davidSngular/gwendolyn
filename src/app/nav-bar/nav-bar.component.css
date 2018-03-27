@@ -3,18 +3,22 @@
   padding: 15px;
   font-size: 25px;
   text-align: center;
+  position: fixed;
   display: block;
   background: #41a3d4;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
 }
 
 .navbar .title {
-  margin-right: -10px;
+  margin-right: -20px;
   font-weight: 200;
 }
 
 .navbar .icon {
   height: 20px;
   float: right;
-  margin-right: 10px;
+  margin-right: 30px;
   margin-top: 5px;
 }

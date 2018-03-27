@@ -1,6 +1,6 @@
 import {Component, Input, OnChanges, SimpleChanges} from '@angular/core';
 import {Moment} from '../../../models/moment';
-import {MomentsService} from "../../../services/moments.service";
+import {MomentsService} from '../../../services/moments.service';
 
 @Component({
   selector: 'app-moment-item',
