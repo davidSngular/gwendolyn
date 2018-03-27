@@ -14,9 +14,13 @@ import {MomentsListComponent} from './moments-list/moments-list.component';
 import {MomentItemComponent} from './moments-list/moment-item/moment-item.component';
 import {MomentDetailComponent} from './moment-detail/moment-detail.component';
 import {ServiceWorkerModule} from '@angular/service-worker';
+import {HomeComponent} from './home/home.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {AngularFireAuthModule} from 'angularfire2/auth';
 
 const FIREBASE_MODULES = [
   AngularFireModule.initializeApp(environment.firebase),
+  AngularFireAuthModule,
   AngularFireStorageModule,
   AngularFireDatabaseModule
 ];
@@ -25,7 +29,8 @@ const COMPONENTS = [
   NavBarComponent,
   MomentsListComponent,
   MomentItemComponent,
-  MomentDetailComponent
+  MomentDetailComponent,
+  HomeComponent
 ];
 
 const SERVICES = [
@@ -40,6 +45,8 @@ const SERVICES = [
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
     ...FIREBASE_MODULES
   ],
   providers: [

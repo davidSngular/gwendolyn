@@ -37,7 +37,7 @@ export class MomentDetailComponent implements OnDestroy {
   }
 
   ngOnDestroy() {
-    document.body.style.backgroundColor = '#4c4c4c';
+    document.body.style.backgroundColor = '#efefef';
   }
 
 }

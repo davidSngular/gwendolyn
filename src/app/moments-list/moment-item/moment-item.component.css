@@ -1,9 +1,9 @@
 .moment-item {
   position: relative;
+  margin: 10px;
 }
 
 .moment-item .box {
-  border-bottom: 1px solid;
   padding: 15px;
   color: white;
 }
@@ -44,4 +44,6 @@
   z-index: 50;
   width: 100%;
   left: 0;
+  border-bottom: 1px solid white;
+  border-radius: 5px;
 }
