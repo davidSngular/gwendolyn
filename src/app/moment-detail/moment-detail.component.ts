@@ -19,11 +19,12 @@ export class MomentDetailComponent implements OnDestroy {
 
     this.route.params.subscribe((params) => {
       const id = +params['id'];
-      this.momentsService.getById(id).subscribe((moment: Moment) => {
-        this.moment = moment;
-        document.body.style.backgroundColor = moment.backgroundColor;
-        this.getImage();
-      });
+      // Get the moment with that id
+      this.moment = this.momentsService.getById(id);
+      // Set the background to that moment color
+      document.body.style.backgroundColor = this.moment.backgroundColor;
+      // Get the image of that moment
+      this.getImage();
     });
   }
 

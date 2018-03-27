@@ -19,8 +19,9 @@ export class MomentsService {
       return dB - dA;
     };
 
-    this.afDatabase.list('/database/moments').valueChanges()
-    // sort the results by their begin date
+    this.afDatabase.list('/database/moments')
+      .valueChanges()
+      // sort the results by their begin date
       .map((moments: Moment[]) => moments.sort(compareFn))
       .subscribe(
         (res: Moment[]) => {
@@ -48,6 +49,9 @@ export class MomentsService {
         return b[0] - a[0];
       };
 
+      // Convert the object to an array and sort it by the year
+      // item[0] => Year
+      // item[1] => Array of moments
       return Object.entries(items).sort(compareFn);
     };
 
@@ -55,13 +59,19 @@ export class MomentsService {
   }
 
   public getById(id) {
-    return this._moments.asObservable().map((moments: Moment[]) => {
-      for (const moment of moments) {
-        if (moment.id === id) {
-          return moment;
-        }
+    // return this._moments.asObservable().map((moments: Moment[]) => {
+    //   for (const moment of moments) {
+    //     if (moment.id === id) {
+    //       return moment;
+    //     }
+    //   }
+    // });
+    for (const moment of this._moments.getValue()) {
+      if (moment.id === id) {
+        return moment;
       }
-    });
+    }
+
   }
 
   public getImageUrl(name) {
