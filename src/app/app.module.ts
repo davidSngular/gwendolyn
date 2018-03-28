@@ -13,10 +13,11 @@ import {MomentsService} from '../services/moments.service';
 import {MomentsListComponent} from './moments-list/moments-list.component';
 import {MomentItemComponent} from './moments-list/moment-item/moment-item.component';
 import {MomentDetailComponent} from './moment-detail/moment-detail.component';
-import {ServiceWorkerModule} from '@angular/service-worker';
 import {HomeComponent} from './home/home.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {AngularFireAuthModule} from 'angularfire2/auth';
+import {SessionService} from '../services/session.service';
+import {LoggedInGuard} from '../guards/logged-in.guard';
 
 const FIREBASE_MODULES = [
   AngularFireModule.initializeApp(environment.firebase),
@@ -33,8 +34,13 @@ const COMPONENTS = [
   HomeComponent
 ];
 
+const GUARDS = [
+  LoggedInGuard
+];
+
 const SERVICES = [
-  MomentsService
+  MomentsService,
+  SessionService
 ];
 
 @NgModule({
@@ -51,6 +57,7 @@ const SERVICES = [
   ],
   providers: [
     ...SERVICES,
+    ...GUARDS,
     {provide: LOCALE_ID, useValue: 'es'}
   ],
   bootstrap: [AppComponent]
