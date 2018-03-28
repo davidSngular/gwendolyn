@@ -76,7 +76,7 @@ export class MomentsService {
     if (name) {
       return this.afStorage.ref(name).getDownloadURL();
     } else {
-      return Observable.of('/assets/default.jpg');
+      return Observable.of('./assets/default.jpg');
     }
   }
 }
