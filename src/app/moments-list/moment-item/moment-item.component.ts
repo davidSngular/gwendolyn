@@ -13,6 +13,7 @@ export class MomentItemComponent implements OnChanges {
   public image = '';
 
   constructor(private momentsService: MomentsService) {
+    console.log(this.image);
   }
 
   ngOnChanges(changes: SimpleChanges) {

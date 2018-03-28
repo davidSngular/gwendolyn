@@ -18,6 +18,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {AngularFireAuthModule} from 'angularfire2/auth';
 import {SessionService} from '../services/session.service';
 import {LoggedInGuard} from '../guards/logged-in.guard';
+import {SafePipe} from '../pipes/safe.pipe';
 
 const FIREBASE_MODULES = [
   AngularFireModule.initializeApp(environment.firebase),
@@ -38,6 +39,10 @@ const GUARDS = [
   LoggedInGuard
 ];
 
+const PIPES = [
+  SafePipe
+];
+
 const SERVICES = [
   MomentsService,
   SessionService
@@ -46,7 +51,8 @@ const SERVICES = [
 @NgModule({
   declarations: [
     AppComponent,
-    ...COMPONENTS
+    ...COMPONENTS,
+    ...PIPES
   ],
   imports: [
     BrowserModule,
