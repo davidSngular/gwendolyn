@@ -29,6 +29,14 @@
         hasta el {{moment.endDate | date:'d \'de\' MMMM'}}
       </span>
     </div>
+    <div class="section">
+      <span class="section-title"> <span class="far fa-images"></span> Galería </span>
+      <div class="gallery">
+        <div class="gallery-image" *ngFor="let i of [1, 2, 3, 4, 5, 6]"
+             [style.background-image]="'url(./assets/default.jpg)' | safe: 'style'">
+        </div>
+      </div>
+    </div>
   </div>
 
   <div class="spinner" *ngIf="loading">

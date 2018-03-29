@@ -4,6 +4,5 @@ export interface Moment {
   description: string;
   beginDate: string;
   endDate: string;
-  backgroundColor: string;
   picture: string;
 }

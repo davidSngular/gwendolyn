@@ -8,7 +8,7 @@ import {Moment} from '../../models/moment';
   templateUrl: './moment-detail.component.html',
   styleUrls: ['./moment-detail.component.css']
 })
-export class MomentDetailComponent implements OnDestroy {
+export class MomentDetailComponent {
 
   public moment: Moment;
   public headerImage = '';
@@ -23,7 +23,6 @@ export class MomentDetailComponent implements OnDestroy {
       this.moment = this.momentsService.getById(id);
       // Set the background to that moment color
       if (this.moment) {
-        document.body.style.backgroundColor = this.moment.backgroundColor;
         // Get the image of that moment
         this.getImage();
 
@@ -37,10 +36,6 @@ export class MomentDetailComponent implements OnDestroy {
       (url) => {
         this.headerImage = url;
       });
-  }
-
-  ngOnDestroy() {
-    document.body.style.backgroundColor = '#efefef';
   }
 
 }
